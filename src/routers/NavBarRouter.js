@@ -9,16 +9,13 @@ import Contact from '../components/headerComponents/Contact';
 
 const NavBarRouter = () => 
 (
-    <BrowserRouter>
-        <div className='NavBarRouter'>
-            <Header />
-            <Switch>
-                <Route path="/" component={LandingPage} exact={true}/>
-                <Route path="/about" component={About} />
-                <Route path="/contact" component={Contact} />
-            </Switch>
-        </div>
-    </BrowserRouter>
+    <div className='NavBarRouter'>
+        <Switch>
+            <Route path="/" component={LandingPage} exact={true}/>
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+        </Switch>
+    </div>
 )
 
 export {NavBarRouter as default};
