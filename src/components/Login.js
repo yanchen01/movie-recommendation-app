@@ -2,7 +2,7 @@ import React from 'react';
 
 const Login = () => (
     <div>
-        This is the login page.
+        <h3>Login</h3>
     </div>
 )
 
