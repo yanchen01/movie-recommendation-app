@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const Login = () => (
     <div className='login-container'>
@@ -6,17 +7,17 @@ const Login = () => (
         <form className='login-form'>
             <label>
                 <p>Email:</p>
-                <input placeholder='' type='text'/>
+                <input placeholder='@example.com' type='text'/>
             </label>
             <label>
                 <p>Password:</p>
-                <input placeholder='' type='text'/>
+                <input placeholder='******' type='text'/>
             </label>
-            <div>
+            <div className='submit-bar'>
+                <Link className='login-back-button' to='/'>Back</Link>
                 <button className='login-submit-button'>Submit</button>
             </div>
         </form>
-        <button className='login-back-button'>Back</button>
     </div>
 )
 
