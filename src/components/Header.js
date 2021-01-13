@@ -1,13 +1,11 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import NavBarRouter from '../routers/NavBarRouter';
-import {BrowserRouter, Route , Switch} from 'react-router-dom';
 
 const Header = () => 
 (
         <header>
             <div className='navbar'>
-                <div className='title'>ML-based Movie Recommednations</div>
+                <div className='title'>ML-based Movie Recommendations</div>
                 <div className='navbar-items'>
                     <NavLink to='/' className='navbar-item' activeClassName='is-active' exact={true}>Home</NavLink>
                     <NavLink to='/about' className='navbar-item' activeClassName='is-active'>About</NavLink>

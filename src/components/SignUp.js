@@ -7,19 +7,19 @@ const SignUp = () => (
         <form className='login-form'>
             <label>
                 <p>Name:</p>
-                <input placeholder='' type='text'/>
+                <input placeholder='John Doe' type='text'/>
             </label>
             <label>
                 <p>Email:</p>
-                <input placeholder='' type='text'/>
+                <input placeholder='johndoe@example.com' type='text'/>
             </label>
             <label>
                 <p>Username:</p>
-                <input placeholder='' type='text'/>
+                <input placeholder='user' type='text'/>
             </label>
             <label>
                 <p>Password:</p>
-                <input placeholder='' type='text'/>
+                <input placeholder='****' type='text'/>
             </label>
             <div className='submit-bar'>
                 <Link className='login-back-button' to='/'>Back</Link>

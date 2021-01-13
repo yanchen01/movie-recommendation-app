@@ -7,11 +7,11 @@ const Login = () => (
         <form className='login-form'>
             <label>
                 <p>Email:</p>
-                <input placeholder='@example.com' type='text'/>
+                <input placeholder='johndoe@example.com' type='text'/>
             </label>
             <label>
                 <p>Password:</p>
-                <input placeholder='******' type='text'/>
+                <input placeholder='****' type='text'/>
             </label>
             <div className='submit-bar'>
                 <Link className='login-back-button' to='/'>Back</Link>
