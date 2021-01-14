@@ -23,7 +23,7 @@ const SignUp = () => (
             </label>
             <div className='submit-bar'>
                 <Link className='login-back-button' to='/'>Back</Link>
-                <button className='login-submit-button'>Submit</button>
+                <button type='submit' className='login-submit-button'>Submit</button>
             </div>
         </form>
     </div>
