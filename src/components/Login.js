@@ -3,10 +3,8 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { withRouter } from 'react-router';
-import {createBrowserHistory as history} from 'history';
 
-const Login = (props) => {
+const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -22,6 +20,8 @@ const Login = (props) => {
             password: password
         };
 
+        console.log(request_body)
+
         axios.post(request_url + api_endpoint, request_body)
         .then(result => {
             console.log(result);
@@ -36,11 +36,11 @@ const Login = (props) => {
 
     return(
         <div className='login-container'>
-            <h2 className='login-header'>Login</h2>
+            <h1 className='login-header'>Login</h1>
             <div>{`Currently, the email is ${email} and the password is ${password}`}</div>
-            <Form className='form' onSubmit={validateUser}>
+            <form className='form' onSubmit={validateUser}>
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label float='left'>Email address</Form.Label>
                     <Form.Control as='input' type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)}/>
                     <Form.Text className="text-muted" onChange={(e) => setEmail(e.target.value)}>
                     We'll never share your email with anyone else.
@@ -52,16 +52,14 @@ const Login = (props) => {
                     <Form.Control as='input' type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                 </Form.Group>
                 <div className='login-buttons-container'>
-                    <Button className='back-button'>
-                        <Link to='/'>Back</Link>
-                    </Button>
+                    <Link to='/'><Button>Back</Button></Link>
                     <Button variant="primary" type="submit">
                         Submit
                     </Button>
                 </div>
-            </Form>
-        </div>   
+            </form>
+        </div>
     )
 }
 
-export default withRouter(Login);
+export {Login as default}

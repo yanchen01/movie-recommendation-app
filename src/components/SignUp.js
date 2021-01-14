@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 const SignUp = () => 
 {
@@ -40,26 +42,31 @@ const SignUp = () =>
         <div className='login-container'>
             <h2 className='login-header'>Sign Up</h2>
             <div>{`The name is ${name}, the email is ${email}, the username is ${username}, and password is ${password}`}</div>
-            <form className='login-form' onSubmit={signUpEventHandler}>
-                <label>
-                    <p>Name:</p>
-                    <input onChange={(e) => setName(e.target.value)} placeholder='John Doe' type='text'/>
-                </label>
-                <label>
-                    <p>Email:</p>
-                    <input onChange={(e) => setEmail(e.target.value)} placeholder='johndoe@example.com' type='text'/>
-                </label>
-                <label>
-                    <p>Username:</p>
-                    <input onChange={(e) => setUsername(e.target.value)} placeholder='user' type='text'/>
-                </label>
-                <label>
-                    <p>Password:</p>
-                    <input onChange={(e) => setPassword(e.target.value)} placeholder='****' type='text'/>
-                </label>
-                <div className='submit-bar'>
-                    <Link className='login-back-button' to='/'>Back</Link>
-                    <button type='submit' className='login-submit-button'>Submit</button>
+            <form className='signup-form' onSubmit={signUpEventHandler}>
+                <Form.Group controlId="formBasicName">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control as='input' type="name" placeholder="Enter name" onChange={(e) => setName(e.target.value)}/>
+                </Form.Group>
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Label float='left'>Email address</Form.Label>
+                    <Form.Control as='input' type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)}/>
+                    <Form.Text className="text-muted" onChange={(e) => setEmail(e.target.value)}>
+                    We'll never share your email with anyone else.
+                    </Form.Text>
+                </Form.Group>
+                <Form.Group controlId="formBasicUserName">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control as='input' type="username" placeholder="Enter Username" onChange={(e) => setUsername(e.target.value)}/>
+                </Form.Group>
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control as='input' type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                </Form.Group>
+                <div className='login-buttons-container'>
+                    <Link to='/'><Button>Back</Button></Link>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
                 </div>
             </form>
         </div>

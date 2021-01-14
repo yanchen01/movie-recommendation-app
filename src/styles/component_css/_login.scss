@@ -1,5 +1,6 @@
-.login-container
+.login-header
 {
+    margin-top: $m-size;
     text-align: center;
 }
 .form
@@ -14,7 +15,11 @@
     display: flex;
     justify-content: space-between;
 }
-.back-button
+.form-group
 {
-    color: white;
+    font-size: $m-size;
+}
+.btn.btn-primary
+{
+    font-size: $m-size;
 }
