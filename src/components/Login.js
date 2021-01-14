@@ -11,31 +11,23 @@ const Login = () => {
     {
         e.preventDefault();
 
-        const token = '';
-        const request_url = 'http://movierecommendation-env.eba-cgphmqy7.us-east-2.elasticbeanstalk.com/api/';
+        const request_url = 'http://movierecommendation-env.eba-cgphmqy7.us-east-2.elasticbeanstalk.com/api';
         const api_endpoint = '/user/login';
         const request_body = {
             email: email,
             password: password
         };
 
-        // const authorization = {
-        //     headers: {
-        //         'Authorization': `Bearer ${token}`
-        //     }
-        // }
-
-        axios.post(request_url + api_endpoint, {request_body})
+        axios.post(request_url + api_endpoint, request_body)
         .then(result => {
             console.log(result);
             console.log(result.data);
-        }, 
-        {
-            headers: 
-            {
-                'Content-Type': 'application/json'
-            }
         })
+        .catch((err) => {
+            // err.response.data returns the json message if request is bad (status code 400s)
+            console.log(err.response.status);
+            console.log(err.response.data);
+        });
     }
 
     return(
@@ -52,7 +44,7 @@ const Login = () => {
                     <input placeholder='****' type='text' onChange={(e) => setPassword(e.target.value)}/>
                 </label>
                 <div className='submit-bar'>
-                    <Link className='login-back-button' to='/'>Back</Link>
+                    <button><Link className='login-back-button' to='/'>Back</Link></button>
                     <button type='submit' className='login-submit-button'>Submit</button>
                 </div>
             </form>

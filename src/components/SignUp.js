@@ -9,10 +9,11 @@ const SignUp = () =>
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const signUp = () => {
-        const token = '';
-        const request_url = '';
-        const api_endpoint = '/user/login';
+    const signUpEventHandler = (e) => {
+        e.preventDefault();
+
+        const request_url = 'http://movierecommendation-env.eba-cgphmqy7.us-east-2.elasticbeanstalk.com/api';
+        const api_endpoint = '/user/register';
         const request_body = {
             name: name,
             email: email,
@@ -20,29 +21,26 @@ const SignUp = () =>
             password: password
         };
 
-        const authorization = {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        }
+        console.log(request_body);
 
-        axios.post(request_url + api_endpoint, {request_body})
+        axios.post(request_url + api_endpoint, request_body)
         .then(result => {
             console.log(result);
             console.log(result.status);
             console.log(result.data);
-        },{
-            headers: {
-                'Content-Type': 'application/json'
-            }
         })
+        .catch((err) => {
+            // err.response.data returns the json message if request is bad (status code 400s)
+            console.log(err.response.status);
+            console.log(err.response.data);
+        });
     }
 
     return (
         <div className='login-container'>
             <h2 className='login-header'>Sign Up</h2>
             <div>{`The name is ${name}, the email is ${email}, the username is ${username}, and password is ${password}`}</div>
-            <form className='login-form'>
+            <form className='login-form' onSubmit={signUpEventHandler}>
                 <label>
                     <p>Name:</p>
                     <input onChange={(e) => setName(e.target.value)} placeholder='John Doe' type='text'/>
