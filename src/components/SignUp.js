@@ -10,7 +10,7 @@ const SignUp = () =>
     const [password, setPassword] = useState('');
 
     const signUp = () => {
-        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTAzOTY3MjcsIm5iZiI6MTYxMDM5NjcyNywianRpIjoiYzc3NGQ3ZTgtMGJiYS00NWY4LTkxODktYThkZjBiNzcyZTZjIiwiZXhwIjoxNjEwMzk3NjI3LCJpZGVudGl0eSI6ImpqIiwiZnJlc2giOnRydWUsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJpc19hZG1pbiI6ZmFsc2V9fQ.lwEg1Y7gN0eGusZpEpgz1XwL18aloCeDGrLi4k6YtTs';
+        const token = '';
         const request_url = '';
         const api_endpoint = '/user/login';
         const request_body = {
