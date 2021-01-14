@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { withRouter } from 'react-router';
+import {createBrowserHistory as history} from 'history';
 
-const Login = () => {
+const Login = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -34,22 +38,30 @@ const Login = () => {
         <div className='login-container'>
             <h2 className='login-header'>Login</h2>
             <div>{`Currently, the email is ${email} and the password is ${password}`}</div>
-            <form className='login-form' onSubmit={validateUser}>
-                <label>
-                    <p>Email:</p>
-                    <input placeholder='johndoe@example.com' type='text' onChange={(e) => setEmail(e.target.value)}/>
-                </label>
-                <label>
-                    <p>Password:</p>
-                    <input placeholder='****' type='text' onChange={(e) => setPassword(e.target.value)}/>
-                </label>
-                <div className='submit-bar'>
-                    <button><Link className='login-back-button' to='/'>Back</Link></button>
-                    <button type='submit' className='login-submit-button'>Submit</button>
+            <Form className='form' onSubmit={validateUser}>
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control as='input' type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)}/>
+                    <Form.Text className="text-muted" onChange={(e) => setEmail(e.target.value)}>
+                    We'll never share your email with anyone else.
+                    </Form.Text>
+                </Form.Group>
+
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control as='input' type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                </Form.Group>
+                <div className='login-buttons-container'>
+                    <Button className='back-button'>
+                        <Link to='/'>Back</Link>
+                    </Button>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
                 </div>
-            </form>
+            </Form>
         </div>   
     )
 }
 
-export {Login as default};
+export default withRouter(Login);

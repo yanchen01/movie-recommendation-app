@@ -2,17 +2,19 @@
 {
     text-align: center;
 }
-.login-submit-button
+.form
 {
-    margin-top: $s-size;
+    max-width: 30%;
+    margin-left: auto;
+    margin-right: auto;
 }
-.login-back-button
+.login-buttons-container
 {
-    margin-top: $m-size;
-}
-.submit-bar
-{
+    margin-top: $xl-size;
     display: flex;
     justify-content: space-between;
-    padding: 0rem 50rem 0rem 50rem;   
+}
+.back-button
+{
+    color: white;
 }

@@ -3,6 +3,7 @@
 @import './base/base';
 
 // Component styling imports
+@import "~bootstrap/scss/bootstrap";
 @import '../styles/component_css/header';
 @import '../styles/component_css/landingPage';
 @import '../styles/component_css/login';
