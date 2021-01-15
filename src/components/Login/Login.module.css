@@ -1,0 +1,17 @@
+.Body {
+	margin-top: 7rem;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Header {
+	text-align: center;
+	font-weight: 600;
+	font-size: 36px;
+	line-height: 44px;
+	color: #000;
+}
+
+.Form {
+	margin-top: 3rem;
+}

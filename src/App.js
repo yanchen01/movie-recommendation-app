@@ -5,6 +5,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // Component imports
+import Navbar from './containers/Navigation/Navigation';
 import Home from './containers/Home/Home';
 import Landing from './containers/Landing/Landing';
 import SignUp from './components/SignUp/SignUp';
@@ -15,6 +16,7 @@ import Contact from './containers/Contact/Contact';
 const App = () => (
 	<div className="App">
 		<BrowserRouter>
+			<Navbar />
 			<Switch>
 				<Route path="/login" component={Login} />
 				<Route path="/signup" component={SignUp} />

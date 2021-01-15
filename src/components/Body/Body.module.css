@@ -1,0 +1,31 @@
+.Headline {
+	font-weight: 600;
+	font-size: 36px;
+	line-height: 44px;
+	color: #f5f5f5;
+}
+.Body {
+	text-align: center;
+	justify-content: space-between;
+    align-items: center;
+    height: 640px;
+}
+.Description {
+	margin-top: 40px;
+	font-size: 20px;
+	color: #c5c5c5;
+	white-space: wrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.Buttons {
+	margin-top: 50px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.Button {
+	width: 400px;
+    border-radius: 20;
+    color: #c5c5c5;
+}

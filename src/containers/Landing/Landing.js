@@ -1,11 +1,11 @@
 import React from 'react';
 import Body from '../../components/Body/Body';
-import Navbar from '../Navigation/Navigation';
+
+import styles from './Landing.module.css';
 
 const Landing = () => {
 	return (
-		<div>
-			<Navbar />
+		<div className={styles.Body}>
 			<Body />
 		</div>
 	);

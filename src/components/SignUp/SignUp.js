@@ -5,29 +5,36 @@ import { Link } from 'react-router-dom';
 // others
 import axios from 'axios';
 
+import styles from './SignUp.module.css';
+
 // bootstrap imports
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 const SignUp = () => {
 	const [ name, setName ] = useState('');
 	const [ email, setEmail ] = useState('');
 	const [ username, setUsername ] = useState('');
 	const [ password, setPassword ] = useState('');
+	const [ validated, setValidated ] = useState(false);
 
-	const signUpEventHandler = (e) => {
-		e.preventDefault();
+	const signUpEventHandler = (event) => {
+		event.preventDefault();
+
+		const form = event.currentTarget;
+
+		if (form.checkValidity() === false) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
 
 		const request_url = 'http://movierecommendation-env.eba-cgphmqy7.us-east-2.elasticbeanstalk.com/api';
 		const api_endpoint = '/user/register';
 		const request_body = {
-			name: name,
-			email: email,
-			username: username,
-			password: password
+			name: form.name.value,
+			email: form.email.value,
+			username: form.username.value,
+			password: form.password.value
 		};
-
-		console.log(request_body);
 
 		axios
 			.post(request_url + api_endpoint, request_body)
@@ -41,63 +48,50 @@ const SignUp = () => {
 				console.log(err.response.status);
 				console.log(err.response.data);
 			});
+		setValidated(true);
+		setEmail(form.email.value);
+		setUsername(form.username.value);
+		setName(form.name.value);
+		setPassword(form.password.value);
 	};
 
 	return (
-		<div className="login-container">
-			<h2 className="login-header">Sign Up</h2>
-			<div
-			>{`The name is ${name}, the email is ${email}, the username is ${username}, and password is ${password}`}</div>
-			<form className="signup-form" onSubmit={signUpEventHandler}>
-				<Form.Group controlId="formBasicName">
-					<Form.Label>Name</Form.Label>
-					<Form.Control
-						as="input"
-						type="name"
-						placeholder="Enter name"
-						onChange={(e) => setName(e.target.value)}
-					/>
-				</Form.Group>
-				<Form.Group controlId="formBasicEmail">
-					<Form.Label float="left">Email address</Form.Label>
-					<Form.Control
-						as="input"
-						type="email"
-						placeholder="Enter email"
-						onChange={(e) => setEmail(e.target.value)}
-					/>
-					<Form.Text className="text-muted" onChange={(e) => setEmail(e.target.value)}>
-						We'll never share your email with anyone else.
-					</Form.Text>
-				</Form.Group>
-				<Form.Group controlId="formBasicUserName">
-					<Form.Label>Username</Form.Label>
-					<Form.Control
-						as="input"
-						type="username"
-						placeholder="Enter Username"
-						onChange={(e) => setUsername(e.target.value)}
-					/>
-				</Form.Group>
-				<Form.Group controlId="formBasicPassword">
-					<Form.Label>Password</Form.Label>
-					<Form.Control
-						as="input"
-						type="password"
-						placeholder="Password"
-						onChange={(e) => setPassword(e.target.value)}
-					/>
-				</Form.Group>
-				<div className="login-buttons-container">
-					<Link to="/">
-						<Button>Back</Button>
-					</Link>
-					<Button variant="primary" type="submit">
-						Submit
-					</Button>
-				</div>
-			</form>
-		</div>
+		<Container>
+			<Row className={styles.Body}>
+				<Col>{}</Col>
+				<Col>
+					<div className={styles.Header}>
+						<h2>Sign Up</h2>
+					</div>
+
+					<Form className={styles.Form} onSubmit={signUpEventHandler}>
+						<Form.Group controlId="name">
+							<Form.Label>Name</Form.Label>
+							<Form.Control name="name" type="text" placeholder="Enter name" />
+						</Form.Group>
+						<Form.Group controlId="email">
+							<Form.Label>Email address</Form.Label>
+							<Form.Control name="email" type="email" placeholder="Enter email" />
+							<Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
+						</Form.Group>
+						<Form.Group controlId="username">
+							<Form.Label>Username</Form.Label>
+							<Form.Control name="username" type="text" placeholder="Enter username" />
+						</Form.Group>
+
+						<Form.Group controlId="password">
+							<Form.Label>Password</Form.Label>
+							<Form.Control name="password" type="password" placeholder="Password" />
+						</Form.Group>
+
+						<Button variant="primary" type="submit">
+							Submit
+						</Button>
+					</Form>
+				</Col>
+				<Col>{}</Col>
+			</Row>
+		</Container>
 	);
 };
 
