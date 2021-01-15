@@ -2,15 +2,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// Style imports
-import './styles/styles.scss';
-
 // Component imports
-import App from './components/App';
+import App from './App';
 
 // Other
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
 
 reportWebVitals();

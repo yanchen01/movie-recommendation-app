@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+*,
+*::after,
+*::before {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: inherit;
+}
+
+body {
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+	background-color: #e6e6e6;
+}
+
+@media (max-width: 770) {
+	.collapse-menu {
+		display: flex;
+		box-sizing: border-box;
+	}
+}
