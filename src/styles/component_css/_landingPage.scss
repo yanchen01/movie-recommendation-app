@@ -4,12 +4,41 @@
     content: '';
     clear: both;
 }
-.column
+.landingPage-header
+{
+    font-size: $l-size;
+}
+.landingPage-description
+{
+    margin-top: $l-size;
+    font-size: $m-size;
+}
+.leftColumn
 {
     float: left;
     width: 50%;
     margin-top: $xl-size;
     text-align: center;
+    font-size: $l-size;
+    padding-left: 10%;
+}
+.rightColumn
+{
+    float: right;
+    width: 50%;
+    margin-top: $xl-size;
+    text-align: center;
+    font-size: $l-size;
+}
+.button-container
+{
+    display: flex;
+    flex-direction: column;
+}
+.button
+{
+    margin-top: $l-size;
+    width: 50%;
 }
 .landingPageMovie
 {

@@ -19,7 +19,9 @@
 {
     font-size: $m-size;
 }
+// this applies to signup buttons as well because they share the same classname from bootstrap
 .btn.btn-primary
 {
     font-size: $m-size;
+    width: 100px;
 }
