@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import {NavLink} from 'react-router-dom';
 import { useSpring, animated, config } from 'react-spring';
 
 import Brand from './Brand/Brand';
 import CollapseMenu from './CollapseMenu/CollapseMenu';
 import BurgerMenu from './BurgerMenu/BurgerMenu';
+
+import styleSheet from './Navbar.module.scss';
 
 const Navbar = (props) => {
 	const barAnimation = useSpring({
@@ -20,14 +23,14 @@ const Navbar = (props) => {
 	});
 
 	return (
-		<React.Fragment>
+		<div className={styleSheet.navbar}>
 			<NavBar style={barAnimation}>
 				<FlexContainer>
 					<Brand />
 					<NavLinks style={linkAnimation}>
-						<a href="/">Home</a>
-						<a href="/about">About</a>
-						<a href="/contact">Contact</a>
+						<NavLink to="/">Home</NavLink>
+						<NavLink to="/about">About</NavLink>
+						<NavLink to="/contact">Contact</NavLink>
 					</NavLinks>
 					<BurgerWrapper>
 						<BurgerMenu navbarState={props.isOpen} handleNavbar={props.navbarHandler} />
@@ -35,7 +38,7 @@ const Navbar = (props) => {
 				</FlexContainer>
 			</NavBar>
 			<CollapseMenu navbarState={props.isOpen} handleNavbar={props.navbarHandler} />
-		</React.Fragment>
+		</div>
 	);
 };
 

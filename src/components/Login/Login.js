@@ -68,8 +68,8 @@ const Login = () => {
 						<Form.Group controlId="password">
 							<Form.Label>Password</Form.Label>
 							<Form.Control name="password" type="password" placeholder="Password" />
-						</Form.Group>
-t
+                        </Form.Group>
+                        
 						<Button variant="primary" type="submit">
 							Submit
 						</Button>
