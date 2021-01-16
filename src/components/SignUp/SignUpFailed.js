@@ -75,7 +75,8 @@ const SignUp = () => {
 						<h2>Sign Up</h2>
 					</div>
 
-					<Form className={styles.Form} onSubmit={signUpEventHandler}>
+                    <Form className={styles.Form} onSubmit={signUpEventHandler}>
+                        <div style={{color: 'red'}}>Signup failed, please try again</div>
 						<Form.Group controlId="name">
 							<Form.Label>Name</Form.Label>
 							<Form.Control name="name" type="text" placeholder="Enter name" />

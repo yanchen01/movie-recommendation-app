@@ -21,8 +21,6 @@ const Login = () => {
 		event.preventDefault();
 
         const form = event.currentTarget;
-        
-        let loginFailed = false;
 
 		if (form.checkValidity() === false) {
 			event.preventDefault();
@@ -50,8 +48,6 @@ const Login = () => {
 				// err.response.data returns the json message if request is bad (status code 400s)
 				console.log(err.response.status);
                 console.log(err.response.data);
-                
-                loginFailed = true;
 
                 history.push({
                     pathname: '/loginfailed'

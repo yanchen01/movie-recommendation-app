@@ -9,6 +9,7 @@ import Navbar from './containers/Navigation/Navigation';
 import Home from './containers/Home/Home';
 import Landing from './containers/Landing/Landing';
 import SignUp from './components/SignUp/SignUp';
+import SignUpFailed from './components/SignUp/SignUpFailed';
 import Login from './components/Login/Login';
 import LoginFailed from './components/Login/LoginFailed';
 import About from './containers/About/About';
@@ -25,6 +26,7 @@ const App = () => (
                 <Route path="/contact" component={Contact} />
                 <Route path="/home" component={Home} />
                 <Route path="/loginfailed" component={LoginFailed} />
+                <Route path="/signupfailed" component={SignUpFailed} />
 				<Route exact path="/" component={Landing} />
 			</Switch>
 		</BrowserRouter>
