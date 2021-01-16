@@ -71,8 +71,8 @@ const Login = () => {
 					<div className={styles.Header}>
 						<h2>Login</h2>
 					</div>
-
-					<Form className={styles.Form} onSubmit={loginHandler}>
+                    <Form className={styles.Form} onSubmit={loginHandler}>
+                        <div style={{color: 'red'}}>Login failed, please try again</div>
 						<Form.Group controlId="email">
 							<Form.Label>Email address</Form.Label>
 							<Form.Control name="email" type="email" placeholder="Enter email" />
