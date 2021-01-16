@@ -11,11 +11,15 @@ body {
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 	background-color: #e6e6e6;
+	padding-top: 70px;
 }
 
 @media (max-width: 770) {
 	.collapse-menu {
 		display: flex;
 		box-sizing: border-box;
+	}
+	body {
+		padding-top: 100px;
 	}
 }

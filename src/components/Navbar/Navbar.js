@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSpring, animated, config } from 'react-spring';
 
 import Brand from './Brand/Brand';
 import CollapseMenu from './CollapseMenu/CollapseMenu';
 import BurgerMenu from './BurgerMenu/BurgerMenu';
-
-import styleSheet from './Navbar.module.scss';
 
 const Navbar = (props) => {
 	const barAnimation = useSpring({
@@ -23,7 +21,7 @@ const Navbar = (props) => {
 	});
 
 	return (
-		<div className={styleSheet.navbar}>
+		<div>
 			<NavBar style={barAnimation}>
 				<FlexContainer>
 					<Brand />
